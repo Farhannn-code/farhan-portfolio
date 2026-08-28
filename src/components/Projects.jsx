@@ -267,57 +267,15 @@ const Projects = () => {
         }
 
         if (isMobile) {
-          const cardW = window.innerWidth * 0.8;
-          const gap = 20;
-          
           mobileCardsRef.current.forEach((card, i) => {
             gsap.set(card, {
-              x: -(i * (cardW + gap)), 
+              x: 0,
               y: 0,
-              scale: 0.4,
-              opacity: 0,
-              rotation: gsap.utils.random(-15, 15)
+              rotation: 0,
+              scale: i === 0 ? 1 : 0.92,
+              opacity: i === 0 ? 1 : 0.5
             });
           });
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 60%",
-            }
-          });
-
-          tl.to(folderFrontRef.current, {
-            rotationX: -130,
-            duration: 0.8,
-            ease: "power3.inOut"
-          });
-
-          tl.to(mobileCardsRef.current, {
-            y: -100,
-            opacity: 1,
-            scale: 0.85,
-            duration: 0.6,
-            stagger: 0.05,
-            ease: "back.out(1.2)"
-          }, "-=0.4");
-
-          tl.to(mobileCardsRef.current, {
-            x: 0,
-            y: 0,
-            rotation: 0,
-            scale: (i) => i === 0 ? 1 : 0.92,
-            opacity: (i) => i === 0 ? 1 : 0.5,
-            duration: 0.8,
-            stagger: 0.08,
-            ease: "expo.out",
-            onComplete: () => {
-              if (mobileCarouselRef.current) {
-                mobileCarouselRef.current.style.overflowX = 'auto';
-                mobileCarouselRef.current.style.pointerEvents = 'auto';
-              }
-            }
-          }, "-=0.2");
         }
       });
     }, containerRef);
@@ -439,7 +397,7 @@ const Projects = () => {
         <div 
           ref={mobileCarouselRef}
           onScroll={handleMobileScroll}
-          className="w-screen h-auto py-12 flex items-center gap-6 px-[12.5vw] pointer-events-none snap-x snap-mandatory overflow-x-hidden hide-scrollbar touch-auto"
+          className="w-screen h-auto py-12 flex items-center gap-6 px-[12.5vw] pointer-events-auto snap-x snap-mandatory overflow-x-auto hide-scrollbar touch-auto"
         >
         <style>{`
           .hide-scrollbar::-webkit-scrollbar { display: none; }

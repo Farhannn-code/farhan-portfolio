@@ -11,10 +11,16 @@ const Hero = () => {
 
   const handleProjectsNavigation = (event) => {
     event.preventDefault();
+    const projectsSection = document.getElementById('projects');
     const showcase = document.getElementById('projects-showcase');
-    if (!showcase) return;
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const target = isMobile ? projectsSection : showcase;
+    if (!target) return;
 
-    showcase.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: isMobile ? 'start' : 'center'
+    });
     window.history.replaceState(null, '', '#projects');
   };
 
