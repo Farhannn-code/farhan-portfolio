@@ -18,29 +18,6 @@ const Hero = () => {
     window.history.replaceState(null, '', '#projects');
   };
 
-  const handleResumeDownload = async (event) => {
-    event.preventDefault();
-    const resumeUrl = event.currentTarget.href;
-
-    try {
-      const response = await fetch(resumeUrl, { cache: 'no-store' });
-      if (!response.ok) throw new Error('Resume download failed');
-
-      const resumeBlob = await response.blob();
-      const objectUrl = URL.createObjectURL(resumeBlob);
-      const downloadLink = document.createElement('a');
-
-      downloadLink.href = objectUrl;
-      downloadLink.download = 'Farhan-Resume.pdf';
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      downloadLink.remove();
-      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
-    } catch {
-      window.location.assign(resumeUrl);
-    }
-  };
-
   const developerRoles = [
     'PORTFOLIO // LARAVEL FULL-STACK DEVELOPMENT',
     'EXPERTISE // WORDPRESS SOLUTIONS',
@@ -315,9 +292,8 @@ const Hero = () => {
               Hire Me
             </a>
             <a
-              href="/Farhan-Resume.pdf?v=2026-08-28"
+              href="/Farhan-Resume.pdf?v=2026-08-28-2"
               download="Farhan-Resume.pdf"
-              onClick={handleResumeDownload}
               aria-label="Download F. Farhan resume PDF"
               className="shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 rounded bg-neutral-900/90 hover:bg-neutral-800 text-white border border-red-600/50 font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_16px_rgba(229,9,20,0.2)] flex items-center gap-1.5 sm:gap-2 hover:scale-105 active:scale-95"
             >

@@ -192,6 +192,18 @@ const Skills = () => {
         />
       ))}
 
+      {/* Mobile-only section heading */}
+      <div className="md:hidden absolute top-10 left-6 right-6 z-20 pointer-events-none">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-black/80 border border-red-600/40 text-[10px] font-mono uppercase tracking-widest text-white shadow-xl">
+          <span className="text-red-500 font-bold">Technical Expertise</span>
+          <span className="text-white/40">|</span>
+          <span>Core Skills</span>
+        </div>
+        <h2 className="mt-4 text-3xl font-black text-white tracking-tight leading-none uppercase">
+          Core <span className="text-red-500">Skills.</span>
+        </h2>
+      </div>
+
       {/* Massive Background Typography (Red & White Outline) */}
       <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
         {skillCategories.map((_, i) => (
@@ -219,7 +231,7 @@ const Skills = () => {
           <div 
             key={i}
             ref={el => cardsRef.current[i] = el}
-            className="md:absolute relative shrink-0 snap-center w-[82vw] sm:w-[360px] md:w-[440px] h-[460px] md:h-[540px] rounded-[32px] p-8 md:p-10 bg-[#141414]/95 backdrop-blur-2xl border border-white/15 flex flex-col justify-between overflow-hidden group shadow-[0_30px_60px_rgba(0,0,0,0.9)] hover:border-red-600/80 transition-colors duration-500"
+            className="md:absolute relative shrink-0 snap-center w-[82vw] sm:w-[360px] md:w-[440px] h-[430px] sm:h-[460px] md:h-[540px] rounded-[32px] p-8 md:p-10 bg-[#141414]/95 backdrop-blur-2xl border border-white/15 flex flex-col justify-between overflow-hidden group shadow-[0_30px_60px_rgba(0,0,0,0.9)] hover:border-red-600/80 transition-colors duration-500"
           >
             {/* Inner Red Glossy Reflection */}
             <div className="absolute inset-0 bg-gradient-to-tr from-red-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-20" />

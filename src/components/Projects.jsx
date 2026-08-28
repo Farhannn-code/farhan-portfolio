@@ -336,10 +336,22 @@ const Projects = () => {
     <section id="projects" ref={containerRef} className="bg-[#0b0b0b] min-h-[100svh] md:min-h-[170vh] relative font-sans overflow-x-clip text-white w-full flex items-center justify-center py-24 md:py-40 select-none">
       
       {/* Background Project Title Watermark */}
-      <div className="absolute top-10 left-0 w-full flex items-start justify-center pointer-events-none z-0">
+      <div className="hidden md:flex absolute top-10 left-0 w-full items-start justify-center pointer-events-none z-0">
         <h1 className="text-[14vw] sm:text-[17vw] md:text-[20vw] font-black text-white/[0.03] tracking-tighter leading-none whitespace-nowrap uppercase">
           PROJECTS
         </h1>
+      </div>
+
+      {/* Mobile-only section heading */}
+      <div className="md:hidden absolute top-10 left-6 right-6 z-20 pointer-events-none">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-black/80 border border-red-600/40 text-[10px] font-mono uppercase tracking-widest text-white shadow-xl">
+          <span className="text-red-500 font-bold">Selected Work</span>
+          <span className="text-white/40">|</span>
+          <span>Portfolio</span>
+        </div>
+        <h2 className="mt-4 text-3xl font-black text-white tracking-tight leading-none uppercase">
+          Featured <span className="text-red-500">Projects.</span>
+        </h2>
       </div>
 
       {/* Ambient Crimson Glow behind folder */}
@@ -349,7 +361,7 @@ const Projects = () => {
       <div id="projects-showcase" className="mt-12 relative w-full max-w-7xl h-full flex items-center justify-center perspective-[2000px] z-10">
         
         {/* Origin Container */}
-        <div className="relative w-0 h-0 transform-style-3d">
+        <div className="hidden md:block relative w-0 h-0 transform-style-3d">
           
           {/* Folder Back */}
           <div 
