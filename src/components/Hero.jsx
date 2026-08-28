@@ -18,6 +18,29 @@ const Hero = () => {
     window.history.replaceState(null, '', '#projects');
   };
 
+  const handleResumeDownload = async (event) => {
+    event.preventDefault();
+    const resumeUrl = event.currentTarget.href;
+
+    try {
+      const response = await fetch(resumeUrl, { cache: 'no-store' });
+      if (!response.ok) throw new Error('Resume download failed');
+
+      const resumeBlob = await response.blob();
+      const objectUrl = URL.createObjectURL(resumeBlob);
+      const downloadLink = document.createElement('a');
+
+      downloadLink.href = objectUrl;
+      downloadLink.download = 'Farhan-Resume.pdf';
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    } catch {
+      window.location.assign(resumeUrl);
+    }
+  };
+
   const developerRoles = [
     'PORTFOLIO // LARAVEL FULL-STACK DEVELOPMENT',
     'EXPERTISE // WORDPRESS SOLUTIONS',
@@ -272,7 +295,7 @@ const Hero = () => {
 
       {/* --- DEVELOPER PORTFOLIO NAVBAR --- */}
       <header className="absolute top-0 left-0 z-50 w-full px-4 sm:px-6 md:px-8 py-5 md:py-6 pointer-events-auto">
-        <div className="w-full max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-[auto_minmax(0,1fr)] md:grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4">
           <div className="justify-self-start text-xl sm:text-2xl font-black text-red-600 tracking-tighter flex items-center gap-2 drop-shadow-[0_2px_15px_rgba(229,9,20,0.9)]">
             FARHAN<span className="w-1.5 h-1.5 rounded-full bg-white inline-block"></span>
           </div>
@@ -287,14 +310,16 @@ const Hero = () => {
           <div className="justify-self-end flex items-center gap-2 sm:gap-3">
             <a
               href="#contact"
-              className="px-3 sm:px-5 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 active:scale-95"
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap px-3 sm:px-5 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_20px_rgba(229,9,20,0.6)] hover:scale-105 active:scale-95"
             >
               Hire Me
             </a>
             <a
-              href="/Farhan-Resume.pdf"
+              href="/Farhan-Resume.pdf?v=2026-08-28"
               download="Farhan-Resume.pdf"
-              className="px-3 sm:px-4 py-2 rounded bg-neutral-900/90 hover:bg-neutral-800 text-white border border-red-600/50 font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_16px_rgba(229,9,20,0.2)] flex items-center gap-1.5 sm:gap-2 hover:scale-105 active:scale-95"
+              onClick={handleResumeDownload}
+              aria-label="Download F. Farhan resume PDF"
+              className="shrink-0 whitespace-nowrap px-3 sm:px-4 py-2 rounded bg-neutral-900/90 hover:bg-neutral-800 text-white border border-red-600/50 font-bold text-[10px] sm:text-xs uppercase tracking-widest transition-all duration-300 shadow-[0_0_16px_rgba(229,9,20,0.2)] flex items-center gap-1.5 sm:gap-2 hover:scale-105 active:scale-95"
             >
               <svg className="w-3.5 h-3.5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14" />

@@ -11,7 +11,6 @@ const projectsData = [
     category: "Laravel Full-Stack Development",
     description: "Built a B2B e-commerce portal with customer authentication, product catalogs, enquiries, quotations, order management, customer accounts, and role-based access.",
     tags: ["Laravel", "PHP", "MySQL", "REST API"],
-    status: "Featured",
     code: "PROJECT 01"
   },
   {
@@ -19,7 +18,6 @@ const projectsData = [
     category: "Laravel SaaS Development",
     description: "Developed a scalable SaaS e-commerce platform with business-specific accounts, customer management, product workflows, order processing, and backend administration.",
     tags: ["Laravel", "PHP", "MySQL", "JavaScript"],
-    status: "Featured",
     code: "PROJECT 02"
   },
   {
@@ -27,7 +25,6 @@ const projectsData = [
     category: "Laravel Full-Stack Development",
     description: "Developed a complete customer portal with product browsing, product details, customer profiles, enquiries, Buy Now functionality, order management, order status tracking, and backend integration.",
     tags: ["Laravel", "PHP", "MySQL", "REST API"],
-    status: "Featured",
     code: "PROJECT 03"
   },
   {
@@ -35,7 +32,6 @@ const projectsData = [
     category: "Laravel Backend Development",
     description: "Designed and integrated REST APIs for products, customers, enquiries, orders, authentication, and third-party services with structured and scalable backend workflows.",
     tags: ["Laravel", "PHP", "REST API", "MySQL"],
-    status: "Featured",
     code: "PROJECT 04"
   },
   {
@@ -43,7 +39,6 @@ const projectsData = [
     category: "WordPress Development",
     description: "Developed responsive WordPress websites based on design requirements using Elementor and custom development, ensuring accurate layouts across desktop, tablet, and mobile devices.",
     tags: ["WordPress", "Elementor", "PHP", "CSS"],
-    status: "Featured",
     code: "PROJECT 05"
   },
   {
@@ -51,7 +46,6 @@ const projectsData = [
     category: "WordPress Custom Development",
     description: "Built custom UI components, responsive sections, sliders, navigation systems, animations, and interactive functionality beyond standard Elementor and theme capabilities.",
     tags: ["WordPress", "Elementor", "JavaScript", "PHP", "CSS"],
-    status: "Featured",
     code: "PROJECT 06"
   },
   {
@@ -59,7 +53,6 @@ const projectsData = [
     category: "Shopify Full-Stack Development",
     description: "Developed and customized Shopify e-commerce functionality across storefront and backend systems, including product flows, customer experiences, checkout-related features, and custom integrations.",
     tags: ["Shopify", "JavaScript", "Liquid", "REST API"],
-    status: "Featured",
     code: "PROJECT 07"
   },
   {
@@ -67,7 +60,6 @@ const projectsData = [
     category: "Shopify Backend Integration",
     description: "Implemented Shopify APIs and webhooks for order creation, order synchronization, product creation and updates, and automated communication between Shopify and backend applications.",
     tags: ["Shopify API", "Webhooks", "Laravel", "REST API"],
-    status: "Featured",
     code: "PROJECT 08"
   }
 ];
@@ -382,14 +374,10 @@ const Projects = () => {
               <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414]/95 backdrop-blur-2xl shadow-[0_25px_50px_rgba(0,0,0,0.9)] transition-all duration-500 group hover:scale-[1.04] hover:border-red-600 hover:shadow-[0_35px_80px_rgba(229,9,20,0.35)] hover:-translate-y-2 relative z-10 p-7 flex flex-col justify-between">
                 
                 {/* Top Card Header */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-red-500 bg-red-600/10 px-2.5 py-1 rounded border border-red-600/20">
                     {project.code}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-red-400 font-bold">{project.status}</span>
-                    <span className="text-[10px] font-mono border border-white/30 px-1 text-white/70">WEB</span>
-                  </div>
                 </div>
 
                 {/* Middle Title & Description */}
@@ -452,11 +440,10 @@ const Projects = () => {
             className="shrink-0 w-[78vw] aspect-[16/11] snap-center will-change-transform relative z-10"
           >
             <div className="w-full h-full rounded-[24px] overflow-hidden border border-white/15 bg-[#141414] p-6 flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.9)]">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center">
                 <span className="text-[10px] font-mono font-bold tracking-widest text-red-500 bg-red-600/10 px-2 py-0.5 rounded">
                   {project.code}
                 </span>
-                <span className="text-xs font-mono text-red-400 font-bold">{project.status}</span>
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-black text-white">{project.title}</h3>
