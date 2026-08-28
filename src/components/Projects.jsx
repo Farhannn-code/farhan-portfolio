@@ -439,7 +439,7 @@ const Projects = () => {
         <div 
           ref={mobileCarouselRef}
           onScroll={handleMobileScroll}
-          className="w-screen h-auto py-12 flex items-center gap-6 px-[12.5vw] pointer-events-none snap-x snap-mandatory overflow-x-hidden hide-scrollbar touch-pan-x"
+          className="w-screen h-auto py-12 flex items-center gap-6 px-[12.5vw] pointer-events-none snap-x snap-mandatory overflow-x-hidden hide-scrollbar touch-auto"
         >
         <style>{`
           .hide-scrollbar::-webkit-scrollbar { display: none; }
